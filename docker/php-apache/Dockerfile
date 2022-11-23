@@ -2,7 +2,6 @@ FROM php:7.4-apache
 RUN apt update -y && apt install -y zip zlib1g-dev libpng-dev libonig-dev libzip-dev libmagickwand-dev imagemagick
 RUN docker-php-ext-install exif \
 gd \
-# mbstring \ libonig-devにmbstringが含まれるので不要
 pdo_mysql \
 mysqli \
 opcache \
