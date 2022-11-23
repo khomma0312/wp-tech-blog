@@ -1,0 +1,33 @@
+services:
+  web:
+    build: docker/php-apache
+    image: wp_tech_blog_web_image
+    container_name: wp-tech-blog-web
+    depends_on:
+      - db
+    volumes:
+      - ./app:/var/www/html/
+      - ./docker/php-apache/apache/mods-enabled/auth_digest.load:/etc/apache2/mods-enabled/auth_digest.load
+      - ./docker/php-apache/apache/apache2.conf:/etc/apache2/apache2.conf
+      - ./docker/php-apache/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/php-apache/php/conf.d/custom-dev.ini:/usr/local/etc/php/conf.d/custom-dev.ini
+      - ./docker/php-apache/apache/password:/etc/apache2/password
+    ports:
+      - 8088:80
+
+  db:
+    image: mysql:5.7
+    container_name: wp-tech-blog-db
+    volumes:
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=wp_db
+      - MYSQL_ROOT_PASSWORD=root
+
+networks:
+  default:
+    name: wp-tech-blog.internal
+
+volumes:
+  data:

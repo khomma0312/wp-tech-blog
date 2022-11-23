@@ -1,0 +1,5 @@
+app/.env
+app/vendor
+app/wordpress/wp-content/uploads
+app/wordpress/wp-content/wflogs
+app/wordpress/wp-content/aiowps_backups

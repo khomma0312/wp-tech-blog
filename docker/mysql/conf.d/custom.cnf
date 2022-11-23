@@ -1,0 +1,10 @@
+[mysqld]
+character-set-server=utf8
+collation-server=utf8_general_ci
+slow_query_log=ON
+slow_query_log_file=/var/lib/mysql/slow.log
+long_query_time=1
+query_cache_type=1
+
+[mysql]
+default-character-set=utf8
