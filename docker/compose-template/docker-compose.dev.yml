@@ -12,6 +12,7 @@ services:
       - ./docker/php-apache/php/php.ini:/usr/local/etc/php/php.ini
       - ./docker/php-apache/php/conf.d/custom-dev.ini:/usr/local/etc/php/conf.d/custom-dev.ini
       - ./docker/php-apache/apache/password:/etc/apache2/password
+      - ./docker/log/php:/var/log/php
     ports:
       - 8088:80
 

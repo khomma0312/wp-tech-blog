@@ -1,3 +1,5 @@
+docker-compose.yml
+.env
 app/.env
 app/vendor
 app/wordpress/wp-content/uploads

@@ -90,6 +90,10 @@ define( 'WP_DEBUG', $_ENV['WP_DEBUG'] );
 /* Add any custom values between this line and the "stop editing" line. */
 define( 'WP_ENV', $_ENV['WP_ENV'] );
 
+// https対応
+if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
+	$_SERVER['HTTPS'] = 'on';
+}
 
 /* That's all, stop editing! Happy publishing. */
 
